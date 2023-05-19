@@ -1,6 +1,6 @@
 # hf-tokenizer-testing 
 
-A simple script to test if tokenizers from various popular models can encode+decode documents losslessly.
+A simple script to test if GPT tokenizers from various popular models can encode+decode documents losslessly.
 
 Documents tested are:
 * QQQ_0: Simple sanity test
