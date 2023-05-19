@@ -13,7 +13,7 @@ Documents tested are:
 * QQQ_7: Japanese book from The Project Gutenberg, 苦悶の欄(Kumon no ran)
 
 ## Why?
-Does it matter if tokenizers can/can't reproduce the input exactly? I guess this is subjective, but I'd say it's at least a nice feature. A feature that (perhaps surprisingly?) most tokenizers out there don't seem to have.
+Does it matter if tokenizers can/can't reproduce the input exactly? I guess this is subjective, but I'd say it's at least a nice feature. A feature that (perhaps surprisingly?) most tokenizers out there don't seem to have. All of these transformers are used with generative models, which means that they have learned to output something different from the training set just because the tokenizer is lossy.
 
 I wrote this for myself on a quest to find a tokenizer I like and I was kind of surprised by the results so I decided to share them.
 
