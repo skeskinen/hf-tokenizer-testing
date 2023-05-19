@@ -45,17 +45,16 @@ for tokenizer_name in tokenizer_names:
 # Sort results by vocab size
 results = sorted(results, key=lambda x: x["vocab_size"])
 
+print("### Pass Fail")
 # Output results in a Markdown table
 print("| Tokenizer Name | Vocab Size |", end="")
-for i, _ in enumerate(testcases):
-    print(f" QQQ_{i} |", end="")
 for i, _ in enumerate(testcases):
     print(f" QQQ_{i} |", end="")
 print()
 
 print("|---|---|", end="")
 for _ in testcases:
-    print("---|---|", end="")
+    print("---|", end="")
 print()
 
 for result in results:
@@ -65,6 +64,22 @@ for result in results:
             print(" ✔️ |", end="")
         else:
             print(" ❌ |", end="")
+    print()
+
+print("### Tokenized length")
+print("| Tokenizer Name | Vocab Size |", end="")
+for i, _ in enumerate(testcases):
+    print(f" QQQ_{i} |", end="")
+print()
+
+print("|---|---|", end="")
+for _ in testcases:
+    print("---|", end="")
+print()
+
+
+for result in results:
+    print(f"| {result['name']} | {result['vocab_size']} |", end="")
     for length in result['tokenized_length']:
         print(f" {length} |", end="")
     print()
