@@ -3,7 +3,7 @@ from transformers import AutoTokenizer
 
 tokenizer_names = ["EleutherAI/gpt-neox-20b", "bigscience/bloom-560m",
                    'gpt2-large', 'huggyllama/llama-7b', 'openlm-research/open_llama_7b_400bt_preview',
-                   'bigcode/starcoder', 'EleutherAI/polyglot-ko-5.8b', 'facebook/galactica-6.7b']
+                   'bigcode/starcoder', 'EleutherAI/polyglot-ko-5.8b', 'facebook/galactica-6.7b','tiiuae/falcon-40b']
 
 file_paths = glob.glob("QQQ_*.txt")
 testcases = []
@@ -18,7 +18,7 @@ results = []
 for tokenizer_name in tokenizer_names:
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_name)
-    vocab_size = tokenizer.vocab_size
+    vocab_size = len(tokenizer)
 
     # Initialize lists for pass_fail and tokenized_length
     pass_fail = []
@@ -31,7 +31,7 @@ for tokenizer_name in tokenizer_names:
         tokenized_length.append(len(encoded))
 
         # Decode
-        decoded = tokenizer.decode(encoded)
+        decoded = tokenizer.decode(encoded, clean_up_tokenization_spaces=False)
         pass_fail.append(decoded == testcase)
 
     # Store test results in results list
